@@ -144,7 +144,7 @@
     man-mode-hook
     apropos-mode-hook
     less-minor-mode-hook
-    info-mode-hook
+    Info-mode-hook
     doc-view-mode-hook
     w3m-mode-hook
     pdf-view-mode-hook
