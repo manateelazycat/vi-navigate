@@ -141,7 +141,7 @@
     emms-browser-mode-hook
     emms-stream-mode-hook
     apt-utils-mode-hook
-    man-mode-hook
+    Man-mode-hook
     apropos-mode-hook
     less-minor-mode-hook
     Info-mode-hook
