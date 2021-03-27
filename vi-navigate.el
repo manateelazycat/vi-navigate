@@ -168,20 +168,20 @@
   (interactive)
   (dolist (hook vi-navigate-hook-list)
     (add-hook hook
-              '(lambda ()
-                 (let* ((keymap-string (format "%s-map" major-mode))
-                        (keymap (symbol-value (intern keymap-string))))
-                   ;; Load default navigate keys.
-                   (vi-navigate-set-key vi-navigate-key-alist keymap)
+              #'(lambda ()
+                  (let* ((keymap-string (format "%s-map" major-mode))
+                         (keymap (symbol-value (intern keymap-string))))
+                    ;; Load default navigate keys.
+                    (vi-navigate-set-key vi-navigate-key-alist keymap)
 
-                   ;; Load sdcv keys if sdcv library was loaed.
-                   (with-temp-message ""
-                     (when (load "sdcv" t)
-                       (vi-navigate-set-key vi-navigate-sdcv-key-alist keymap)))
+                    ;; Load sdcv keys if sdcv library was loaed.
+                    (with-temp-message ""
+                      (when (load "sdcv" t)
+                        (vi-navigate-set-key vi-navigate-sdcv-key-alist keymap)))
 
-                   ;; Add keys if current mode is `help-mode'.
-                   (when (string-equal keymap-string "help-mode-map")
-                     (vi-navigate-set-key vi-navigate-help-mode-key-alist keymap)))))))
+                    ;; Add keys if current mode is `help-mode'.
+                    (when (string-equal keymap-string "help-mode-map")
+                      (vi-navigate-set-key vi-navigate-help-mode-key-alist keymap)))))))
 
 (defun vi-navigate-set-key (key-alist &optional keymap key-prefix)
   "This function is to little type when define key binding.
